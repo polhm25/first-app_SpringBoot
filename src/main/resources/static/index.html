@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARUMAN - Enemigos</title>
+    <link rel="stylesheet" href="styles2.css?v=1.0">
+</head>
+
+<body>
+    <!--CONTENEDOR PRINCIPAL-->
+    <div class="container">
+        <h1>Enemigos</h1>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>País de Origen</th>
+                    <th>Afiliacion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <!--CUERPO DE LA TABLA-->
+            <tbody id="enemigosTableBody">
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 2rem;">Cargando datos...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--FORMULARIO PARA INSERTAR/EDITAR ENEMIGOS-->
+    <div class="formularioContainer">
+        <h2 id="formTitle">Agregar terrorista</h2>
+        <form class="formInsertarEnemigos">
+            <input type="hidden" id="enemigoId">
+            <div class="formGroup">
+                <label>Nombre</label>
+                <input type="text" id="nombre" name="nombre">
+            </div>
+            <div class="formGroup">
+                <label>Género</label>
+                <input type="text" id="genero" name="genero">
+            </div>
+            <div class="formGroup">
+                <label>País de Origen</label>
+                <input type="text" id="paisOrigen" name="paisOrigen">
+            </div>
+            <div class="formGroup">
+                <label>Afiliación</label>
+                <input type="text" id="afiliacion" name="afiliacion">
+            </div>
+            <div class="formGroup">
+                <label>
+                    <input type="checkbox" id="activo" name="activo">
+                    Activo
+                </label>
+            </div>
+            <button type="submit" id="btnSubmit">Agregar</button>
+            <button type="button" id="btnCancelar" style="display: none;">Cancelar</button>
+        </form>
+    </div>
+
+    <!--SCRIPTS-->
+    <script src="script.js"></script>
+</body>
+
+</html>
