@@ -1,33 +1,33 @@
 package dam.saruman.entity;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Entity
-@Table(name="enemigos")
+@Document(collection = "enemigos")
 public class Enemigo {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    @Column
+    @Field
     private String nombre;
 
-    @Column
+    @Field
     private String genero;
 
-    @Column(nullable = false)
+    @Field
     private String pais;
 
-    @Column(nullable = false)
+    @Field
     private String afiliacion;
 
-    @Column
+    @Field
     private Boolean activo;
 
     public Enemigo() {
     }
 
-    public Enemigo(Long id, String nombre, String genero, String pais, String afiliacion, Boolean activo) {
+    public Enemigo(String id, String nombre, String genero, String pais, String afiliacion, Boolean activo) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
@@ -36,11 +36,11 @@ public class Enemigo {
         this.activo = activo;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

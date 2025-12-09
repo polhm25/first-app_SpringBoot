@@ -24,7 +24,7 @@ public class EnemigoService {
         return enemigos;
     }
 
-    public Optional<Enemigo> obtenerEnemigoById(Long id) {
+    public Optional<Enemigo> obtenerEnemigoById(String id) {
         return enemigoRepository.findById(id);
     }
 
@@ -32,7 +32,7 @@ public class EnemigoService {
         return enemigoRepository.save(enemigo);
     }
 
-    public Enemigo actualizarEnemigo(Long id, Enemigo enemigoDetalles) {
+    public Enemigo actualizarEnemigo(String id, Enemigo enemigoDetalles) {
         Optional<Enemigo> enemigo = enemigoRepository.findById(id);
         if (enemigo.isPresent()) {
             Enemigo enemigoExistente = enemigo.get();
@@ -56,7 +56,7 @@ public class EnemigoService {
         return null;
     }
 
-    public boolean eliminarEnemigo(Long id) {
+    public boolean eliminarEnemigo(String id) {
         if (enemigoRepository.existsById(id)) {
             enemigoRepository.deleteById(id);
             return true;

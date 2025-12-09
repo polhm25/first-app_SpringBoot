@@ -21,7 +21,7 @@ public class EnemigoController {
     }
 
     @GetMapping("/enemigo/{id}")
-    public ResponseEntity<Enemigo> getEnemigoById(@PathVariable Long id) {
+    public ResponseEntity<Enemigo> getEnemigoById(@PathVariable String id) {
         Optional<Enemigo> enemigo = enemigoService.obtenerEnemigoById(id);
         return enemigo.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
@@ -33,7 +33,7 @@ public class EnemigoController {
     }
 
     @PutMapping("/enemigo/{id}")
-    public ResponseEntity<Enemigo> updateEnemigo(@PathVariable Long id, @RequestBody Enemigo enemigoDetalles) {
+    public ResponseEntity<Enemigo> updateEnemigo(@PathVariable String id, @RequestBody Enemigo enemigoDetalles) {
         Enemigo enemigoActualizado = enemigoService.actualizarEnemigo(id, enemigoDetalles);
         if (enemigoActualizado != null) {
             return ResponseEntity.ok(enemigoActualizado);
@@ -43,7 +43,7 @@ public class EnemigoController {
     }
 
     @DeleteMapping("/enemigo/{id}")
-    public ResponseEntity<Void> deleteEnemigo(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteEnemigo(@PathVariable String id) {
         if (enemigoService.eliminarEnemigo(id)) {
             return ResponseEntity.noContent().build();
         } else {
